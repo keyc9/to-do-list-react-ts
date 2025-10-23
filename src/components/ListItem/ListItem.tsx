@@ -5,7 +5,8 @@ export const ListItem = ({ todo }: { todo: ToDo }) => {
     return (
         <a 
         target="_blank"
-        href={`/app/list/${todo.id}`} 
+        rel="norefferer"
+        href={`/list/${todo.id}`} 
         className={`${classes.link} ${todo.isDone? classes.done : classes.notDone}`}
         >{todo.text}</a>
     )

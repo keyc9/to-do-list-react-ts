@@ -2,68 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './assets/normalize.scss';
 import './assets/style.scss';
-import { ToDoListPage } from './pages/ToDoListPage';
 import { BrowserRouter, Routes, Route, createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { HomePage } from './pages/HomePage';
-import { ToDo } from './models/todo-item';
-import { NotFound } from './pages/404';
-import { ItemDescription } from './pages/ItemDescription';
-import { Layout } from './layouts/Layout';
-
-const todos: ToDo[] = [{
-  id: 0,
-  text: 'string1',
-  isDone: false,
-}, {
-  id: 1,
-  text: 'string2',
-  isDone: true,
-},
-{
-  id: 2,
-  text: 'string3',
-  isDone: false,
-},
-{
-  id: 3,
-  text: 'string4',
-  isDone: true,
-},
-]
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Layout />,
-    errorElement: <NotFound />,
-    children: [
-      {
-        path: '/',
-        element: <HomePage todos={todos} />,
-      },
-      {
-        path: '/todo',
-        element: <ToDoListPage />,
-      }, {
-        path: '/list/:id',
-        element: <ItemDescription todos={todos} />,
-      },
-
-    ]
-  },
-  {
-    path: '*',
-    element: <NotFound />,
-  }
-], {basename: '/app/'})
+import { router } from './router';
+import { store } from './pages/store'
+import { Provider } from 'react-redux'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>,
     {/* <BrowserRouter>
       <Header />
       <Routes>
@@ -73,7 +24,6 @@ root.render(
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
     </BrowserRouter> */}
-
   </React.StrictMode>
 );
 
