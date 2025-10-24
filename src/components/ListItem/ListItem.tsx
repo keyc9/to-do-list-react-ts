@@ -1,13 +1,16 @@
 import { ToDo } from "../../models/todo-item"
-import classes from './ListItem.module.scss'
+// import classes from './ListItem.module.scss'
+import { ListItemStyled } from "./ListItem.styled"
 
 export const ListItem = ({ todo }: { todo: ToDo }) => {
-    return (
-        <a 
-        target="_blank"
-        rel="norefferer"
-        href={`/list/${todo.id}`} 
-        className={`${classes.link} ${todo.isDone? classes.done : classes.notDone}`}
-        >{todo.text}</a>
-    )
-}
+  return (
+    <ListItemStyled
+      target="_blank"
+      rel="noreferrer"
+      href={`/list/${todo.id}`}
+      className={todo.isDone ? 'done' : 'notDone'}
+    >
+      {todo.text}
+    </ListItemStyled>
+  );
+};
