@@ -2,7 +2,7 @@ import { Form } from "../components/Form/Form"
 import { ToDoList } from "../components/ToDoList/ToDoList"
 import { ToDo } from "../models/todo-item"
 import { useDispatch, useSelector } from "react-redux"
-import { RootState } from "./store"
+import { RootState } from "../store"
 import { createAction, deleteAction, updateAction } from "../features/todoList"
 
 export const ToDoListPage = () => {

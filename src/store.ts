@@ -1,13 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 // import { todoSlice } from "../features/todoList";
-import todoReducer from "../features/todoList";
-import { loadFromLocalStorage, saveToLocalStorage } from "../helpers/storage";
+import todoReducer from "./features/todoList";
+import ThemeReducer from "./features/themeList";
+import { loadFromLocalStorage, saveToLocalStorage } from "./helpers/storage";
 
 
 
 export const store = configureStore({
   reducer: {
     todoList: todoReducer,
+    themeList: ThemeReducer,
   },
   preloadedState: loadFromLocalStorage(),
 });

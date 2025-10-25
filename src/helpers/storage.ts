@@ -1,4 +1,4 @@
-import { RootState } from "../pages/store";
+import { RootState } from "../store";
 
 export const saveToLocalStorage = (state: RootState) => {
   try {

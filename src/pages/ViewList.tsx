@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import { ListItem } from "../components/ListItem/ListItem"
 import { ToDo } from "../models/todo-item"
-import { RootState } from "./store"
+import { RootState } from "../store"
 
 export const ViewList = () => {
     const todoList = useSelector((state: RootState) => state.todoList.todos)
@@ -9,8 +9,8 @@ export const ViewList = () => {
     return (
         <div className="container">
             {
-                todoList.map((todo: ToDo, idx: number) => {
-                    return (<ListItem todo={todo} key={idx} />)
+                todoList.map((todo: ToDo) => {
+                    return (<ListItem todo={todo} key={todo.id} />)
                 })
             }
         </div>

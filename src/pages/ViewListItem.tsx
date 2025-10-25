@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { ToDo } from "../models/todo-item"
 import { useNavigate, useParams } from "react-router-dom"
 import { useSelector } from "react-redux"
-import { RootState } from "./store"
+import { RootState } from "../store"
 
 
 export const ViewListItem = () => {

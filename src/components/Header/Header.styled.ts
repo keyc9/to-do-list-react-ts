@@ -1,3 +1,4 @@
+import exp from "constants";
 import { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
@@ -30,7 +31,19 @@ export const HeaderLink = styled(NavLink)`
   text-decoration: none;
   padding: 10px;
   color: #fff;
-    &.active {
-        color: #ffffff33;
-    }
+  &.active {
+    color: #ffffff33;
+  }
+`;
+
+export const HeaderToggleContainer = styled.div`
+  position: relative;
+  margin-left: auto;
+`;
+
+export const HeaderToggleButton = styled.button`
+  position: absolute;
+  right: 0;
+  top: -50%;
+  transform: translateY(-50%);
 `;
